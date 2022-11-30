@@ -46,17 +46,22 @@ function game(rounds) {
   let playerScore = 0;
 
   for (let i = 0; i < rounds; i++) {
-    if (playRound() == "Player") {
+    console.log(`round: ${i}`)
+    let result = playRound()
+    if (result == "Player") {
       playerScore += 1;
-      console.log(`Player: ${playerScore}`)
-      console.log(`Computer: ${computerScore}`)
-    } else if (playRound() == "Computer") {
+      console.log(`Player: ${playerScore}`);
+      console.log(`Computer: ${computerScore}`);
+    } else if (result == "Computer") {
       computerScore += 1;
-      console.log(`Player: ${playerScore}`)
-      console.log(`Computer: ${computerScore}`)
-    } else if (playRound() == "draw") {}
+      console.log(`Player: ${playerScore}`);
+      console.log(`Computer: ${computerScore}`);
+    } else if (result == "draw") {
+      console.log(`Player: ${playerScore}`);
+      console.log(`Computer: ${computerScore}`);
+    }
   }
-  console.log(`Player: ${playerScore} — Computer: ${computerScore}`);
+  console.log(`Final Score. Player: ${playerScore} — Computer: ${computerScore}`);
 }
 
 game(5);

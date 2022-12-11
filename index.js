@@ -1,29 +1,34 @@
-function getComputerChoice() {
-  let choice = Math.random();
+let computerSelection;
+let playerScore = 0;
+let computerScore = 0;
 
-  if (choice < 1 / 3) {
-    return "rock";
-  } else if (choice >= 1 / 3 && choice < 2 / 3) {
-    return "paper";
-  } else {
-    return "scissors";
-  }
+let choices = ["rock", "paper", "scissors"];
+
+function getComputerChoice() {
+  let choice = choices[Math.floor(Math.random() * choices.length)];
+  console.log(`Computer Choice: ${choice}`);
+  return choice;
 }
 
-function playRound(playerSelection, computerSelection) {
-  playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
-  computerSelection = getComputerChoice();
-  console.log(playerSelection);
-  console.log(computerSelection);
+const buttons = document.querySelectorAll("button");
+console.log(buttons);
 
-  while (
-    playerSelection !== "rock" &&
-    playerSelection !== "paper" &&
-    playerSelection !== "scissors"
-  ) {
-    console.log("improper input. Enter rock, paper, or scissors");
-    playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
-  }
+buttons.forEach((button) => {
+  button.addEventListener("click", function () {
+    playerSelection = button.textContent.toLowerCase();
+    console.log(playerSelection);
+
+    playRound(playerSelection, computerSelection);
+
+    if (playerScore == 5 || computerScore == 5) {
+      declareWinner();
+    }
+  });
+});
+
+function playRound(playerSelection, computerSelection) {
+  computerSelection = getComputerChoice();
+  console.log(computerSelection);
 
   if (playerSelection == computerSelection) {
     console.log("draw");
@@ -42,12 +47,9 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game(rounds) {
-  let computerScore = 0;
-  let playerScore = 0;
-
   for (let i = 0; i < rounds; i++) {
-    console.log(`round: ${i}`)
-    let result = playRound()
+    console.log(`round: ${i}`);
+    let result = playRound();
     if (result == "Player") {
       playerScore += 1;
       console.log(`Player: ${playerScore}`);
@@ -61,7 +63,12 @@ function game(rounds) {
       console.log(`Computer: ${computerScore}`);
     }
   }
-  console.log(`Final Score. Player: ${playerScore} — Computer: ${computerScore}`);
 }
 
-game(5);
+function declareWinner() {
+  console.log(
+    `Final Score. Player: ${playerScore} — Computer: ${computerScore}`
+  );
+  playerScore = 0;
+  computerScore = 0;
+}

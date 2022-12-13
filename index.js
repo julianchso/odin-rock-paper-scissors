@@ -1,22 +1,19 @@
 let computerSelection;
-let playerScore = 0;
-let computerScore = 0;
+let playerSelection;
+let playerScore = 4;
+let computerScore = 4;
 
 let choices = ["rock", "paper", "scissors"];
+const buttons = document.querySelectorAll("button");
 
 function getComputerChoice() {
   let choice = choices[Math.floor(Math.random() * choices.length)];
-  console.log(`Computer Choice: ${choice}`);
   return choice;
 }
-
-const buttons = document.querySelectorAll("button");
-console.log(buttons);
 
 buttons.forEach((button) => {
   button.addEventListener("click", function () {
     playerSelection = button.textContent.toLowerCase();
-    console.log(playerSelection);
 
     playRound(playerSelection, computerSelection);
 
@@ -29,24 +26,21 @@ buttons.forEach((button) => {
 function playRound(playerSelection, computerSelection) {
   computerSelection = getComputerChoice();
 
+  let moves = document.querySelector(".displayMoves");
+  
+  moves.textContent = `You picked ${playerSelection} and computer picked ${computerSelection}`;
+
   if (playerSelection == computerSelection) {
-    console.log("draw");
     return "draw";
   } else if (
     (playerSelection == "rock" && computerSelection == "scissors") ||
     (playerSelection == "scissors" && computerSelection == "paper") ||
     (playerSelection == "paper" && computerSelection == "rock")
   ) {
-    console.log(`You win! ${playerSelection} beats ${computerSelection}`);
     playerScore++;
-    console.log(`Player: ${playerScore}`);
-    console.log(`Computer: ${computerScore}`);
     displayScore();
   } else {
-    console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
     computerScore++;
-    console.log(`Player: ${playerScore}`);
-    console.log(`Computer: ${computerScore}`);
     displayScore();
   }
 }
@@ -60,6 +54,14 @@ function displayScore() {
 }
 
 function declareWinner() {
+  let winnerDiv = document.querySelector(".winnerText");
+  let scoreBoard = document.querySelector(".scoreContainer");
+  if (playerScore == 5) {
+    winnerDiv.textContent = "You Win! Congratulations!";
+  } else if (computerScore == 5) {
+    winnerDiv.textContent = "You lose! Goodbye world...";
+  }
+
   console.log(
     `Final Score. Player: ${playerScore} — Computer: ${computerScore}`
   );

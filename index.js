@@ -28,7 +28,6 @@ buttons.forEach((button) => {
 
 function playRound(playerSelection, computerSelection) {
   computerSelection = getComputerChoice();
-  console.log(computerSelection);
 
   if (playerSelection == computerSelection) {
     console.log("draw");
@@ -39,30 +38,25 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection == "paper" && computerSelection == "rock")
   ) {
     console.log(`You win! ${playerSelection} beats ${computerSelection}`);
-    return "Player";
+    playerScore++;
+    console.log(`Player: ${playerScore}`);
+    console.log(`Computer: ${computerScore}`);
+    displayScore();
   } else {
     console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
-    return "Computer";
+    computerScore++;
+    console.log(`Player: ${playerScore}`);
+    console.log(`Computer: ${computerScore}`);
+    displayScore();
   }
 }
 
-function game(rounds) {
-  for (let i = 0; i < rounds; i++) {
-    console.log(`round: ${i}`);
-    let result = playRound();
-    if (result == "Player") {
-      playerScore += 1;
-      console.log(`Player: ${playerScore}`);
-      console.log(`Computer: ${computerScore}`);
-    } else if (result == "Computer") {
-      computerScore += 1;
-      console.log(`Player: ${playerScore}`);
-      console.log(`Computer: ${computerScore}`);
-    } else if (result == "draw") {
-      console.log(`Player: ${playerScore}`);
-      console.log(`Computer: ${computerScore}`);
-    }
-  }
+function displayScore() {
+  playerScoreDisplay = document.querySelector("#playerScore");
+  playerScoreDisplay.textContent = playerScore;
+
+  computerScoreDisplay = document.querySelector("#computerScore");
+  computerScoreDisplay.textContent = computerScore;
 }
 
 function declareWinner() {

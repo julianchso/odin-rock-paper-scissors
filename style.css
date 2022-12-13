@@ -1,0 +1,107 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+
+body {
+  font-family: roboto, Arial, Helvetica;
+}
+
+h1 {
+  padding-top: 50px;
+}
+
+.center {
+  text-align: center;
+  margin: auto;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+button {
+  height: 100px;
+  width: 200px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin: 1em;
+}
+
+.scoreContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.centerFlex {
+  justify-content: center;
+}
+
+.name {
+  padding: 0 50px;
+}
+
+.score {
+  text-align: center;
+}
+
+.weapon {
+  padding-top: 50px;
+}
+
+.padding-top-bottom-20 {
+  padding: 20px 0;
+}

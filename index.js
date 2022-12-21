@@ -1,7 +1,7 @@
 let computerSelection;
 let playerSelection;
-let playerScore = 4;
-let computerScore = 4;
+let playerScore = 0;
+let computerScore = 0;
 
 let choices = ["rock", "paper", "scissors"];
 const buttons = document.querySelectorAll("button");
@@ -28,7 +28,7 @@ function playRound(playerSelection, computerSelection) {
 
   let moves = document.querySelector(".displayMoves");
   
-  moves.textContent = `You picked ${playerSelection} and computer picked ${computerSelection}`;
+  moves.textContent = `You picked ${playerSelection} and computer picked ${computerSelection}.`;
 
   if (playerSelection == computerSelection) {
     return "draw";

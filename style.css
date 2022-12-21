@@ -98,6 +98,7 @@ button {
 
 .score {
   text-align: center;
+  font-size: 40px;
 }
 
 .weapon {
@@ -110,4 +111,8 @@ button {
 
 .winnerText {
   padding: 10px 20px;
+}
+
+.displayMoves {
+  height: 24px;
 }

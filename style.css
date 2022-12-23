@@ -45,6 +45,7 @@ h6 {
 #__next {
   isolation: isolate;
 }
+/* end of reset */
 
 body {
   font-family: roboto, Arial, Helvetica;

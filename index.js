@@ -1,3 +1,5 @@
+// https://www.theodinproject.com/lessons/foundations-rock-paper-scissors
+
 let computerSelection;
 let playerSelection;
 let playerScore = 0;
